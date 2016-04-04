@@ -1,0 +1,49 @@
+<ion-view id="login" hide-nav-bar="true" >
+  <ion-content padding="true" scroll="false" id="pane">
+    <form novalidate name="loginForm" ng-submit="loginForm.$valid && signIn(user)">
+      <div class="row responsive-md">
+        <div class="col col-50 col-offset-25">
+
+          <div class="header padding text-center">
+            <img src="img/ang.png" alt="Your logo here" />
+          </div>
+
+          <div class="list">
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : loginForm.txtemail.$invalid && loginForm.$submitted }">
+              <input name="txtemail" type="email" ng-model="user.email" placeholder="Email" ng-minlength="5" ng-maxlength="30" required>
+            </label>
+            <div class="form-errors" ng-messages="loginForm.txtemail.$error" ng-if="loginForm.$submitted">
+              <div class="form-error" ng-message="required">This field is required.</div>
+              <div class="form-error" ng-message="email">This field is must be an email.</div>
+              <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
+              <div class="form-error" ng-message="maxlength">This field is must be less than 30 characters.</div>
+            </div>
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : loginForm.txtPassword.$invalid && loginForm.$submitted }">
+              <input name="txtPassword" type="password" ng-model="user.password" placeholder="Password" ng-minlength="5" ng-maxlength="30" required>
+            </label>
+            <div class="form-errors" ng-messages="loginForm.txtPassword.$error" ng-if="loginForm.$submitted">
+            <div class="form-error" ng-message="required">This field is required.</div>
+            <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
+            <div class="form-error" ng-message="maxlength">This field is must be less than 30 characters.</div>
+            </div>
+          </div>
+
+          <button class="button button-block button-positive">
+            Log In
+          </button>
+
+          <div class="row row-no-padding">
+            <div class="col">
+              <a href="#/forgot" class="button button-clear button-block button-positive">Forgot password?</a>
+            </div>
+<!--
+            <div class="col text-right">
+              <a href="#/register" class="button button-clear button-positive">Register</a>
+            </div>
+          -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
